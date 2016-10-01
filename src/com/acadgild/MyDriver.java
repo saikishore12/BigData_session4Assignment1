@@ -16,6 +16,7 @@ public class MyDriver {
 	public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
 		Configuration conf = new Configuration();
 		Job job = Job.getInstance(conf, "driver");
+		job.setJarByClass(MyDriver.class);
 		job.setMapperClass(Mymapper.class);
 		FileInputFormat.addInputPath(job, new Path(args[0]));
 		FileOutputFormat.setOutputPath(job, new Path(args[1]));
